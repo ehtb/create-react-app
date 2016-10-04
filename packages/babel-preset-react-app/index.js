@@ -45,11 +45,11 @@ module.exports = {
 // https://github.com/facebookincubator/create-react-app/issues/720
 // It’s also nice that we can enforce `NODE_ENV` being specified.
 var env = process.env.BABEL_ENV || process.env.NODE_ENV;
-if (env !== 'development' && env !== 'test' && env !== 'production') {
+if (env !== 'development' && env !== 'test' && env !== 'production' && env !== 'staging') {
   throw new Error(
     'Using `babel-preset-react-app` requires that you specify `NODE_ENV` or '+
     '`BABEL_ENV` environment variables. Valid values are "development", ' +
-    '"test", and "production". Instead, received: ' + JSON.stringify(env) + '.'
+    '"test", "staging", and "production". Instead, received: ' + JSON.stringify(env) + '.'
   );
 }
 var plugins = module.exports.plugins;
@@ -61,7 +61,7 @@ if (env === 'development' || env === 'test') {
     require.resolve('babel-plugin-transform-react-jsx-self')
   ]);
 }
-if (env === 'production') {
+if (env === 'production' || env === 'staging') {
   // Optimization: hoist JSX that never changes out of render()
   // Disabled because of issues:
   // * https://github.com/facebookincubator/create-react-app/issues/525

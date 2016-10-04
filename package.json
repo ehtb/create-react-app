@@ -6,6 +6,7 @@
     "e2e": "tasks/e2e.sh",
     "postinstall": "lerna bootstrap",
     "publish": "tasks/release.sh",
+    "stage": "node packages/react-scripts/scripts/stage.js",
     "start": "node packages/react-scripts/scripts/start.js",
     "test": "node packages/react-scripts/scripts/test.js --env=jsdom"
   },
